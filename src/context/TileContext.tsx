@@ -1,8 +1,8 @@
 import type { TileType } from "../utils/types";
 import type { ReactNode } from "react";
 
-
-import { createContext } from "react";
+import { createContext, useState } from "react";
+import { END_TILE_CONFIGURATION, START_TILE_CONFIGURATION } from "../utils/constants";
 
 interface TileContextInterface {
     startTile: TileType;
@@ -16,5 +16,19 @@ export const TileContext = createContext<TileContextInterface | undefined>(
 );
 
 export const TileProvider = ({children}: {children: ReactNode}) => {
-    
+    const [startTile, setStartTile] = useState<TileType>(START_TILE_CONFIGURATION)
+    const [endTile, setEndTile] = useState<TileType>(END_TILE_CONFIGURATION)
+
+    return (
+        <TileContext.Provider
+            value = {{
+                startTile,
+                setStartTile,
+                endTile,
+                setEndTile,
+            }}
+        >
+            {children}
+        </TileContext.Provider>
+    )
 }
