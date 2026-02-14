@@ -1,4 +1,4 @@
-import { GridType, TileType } from './types';
+import type { GridType, TileType } from './types';
 import { MAX_ROWS, MAX_COLS } from "./constants";
 
 
