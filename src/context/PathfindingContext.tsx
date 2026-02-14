@@ -1,7 +1,10 @@
-import { AlgorithmType, MazeType, GridType } from "../utils/types";
-import { createContext, ReactNode, useState } from "react";
+import type { AlgorithmType, MazeType, GridType } from "../utils/types";
+import type { ReactNode } from "react";
+
+import { createContext, useState } from "react";
 import { createGrid } from "../utils/helpers";
 import { END_TILE_CONFIGURATION, START_TILE_CONFIGURATION } from "../utils/constants";
+
 
 interface PathfindingContextInterface {
     algorithm: AlgorithmType;
