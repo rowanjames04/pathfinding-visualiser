@@ -1,6 +1,10 @@
 export type AlgorithmType = "DIJKSTRA" | "A_STAR" | "BFS" | "DFS";
 
 export type MazeType = "NONE" | "BINARY_TREE" | "RECURSIVE_DIVISION"
+export interface MazeSelectType {
+    name: string;
+    value: MazeType;
+}
 
 export type TileType = {
     row: number;
