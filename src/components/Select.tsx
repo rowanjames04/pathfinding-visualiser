@@ -11,7 +11,7 @@ export function Select({
     onChange: (value: ChangeEvent<HTMLSelectElement>) => void;
     options: {value: string | number; name: string}[];
     label: string;
-    isDisabled: boolean;
+    isDisabled?: boolean;
 }) {
     return (
         <div className="flex flex-col items-start gap-1">
