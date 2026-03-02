@@ -16,7 +16,7 @@ export const bfs = (grid: GridType, startTile: TileType, endTile: TileType) => {
         if (tile.distance === Infinity) break;
         tile.isTraversed = true;
         traversedTiles.push(tile);
-        if (!isEqual(tile, endTile)) break;
+        if (isEqual(tile, endTile)) break;
 
         const neighbours = getUntraversedNeighbours(grid, tile);
         for (let i = 0; i < neighbours.length; i++) {
@@ -30,7 +30,7 @@ export const bfs = (grid: GridType, startTile: TileType, endTile: TileType) => {
     }
 
     const path = [];
-    let tile = grid[endTile.row][endTile.row];
+    let tile = grid[endTile.row][endTile.col];
     while (tile != null) {
         tile.isPath = true;
         path.unshift(tile);
