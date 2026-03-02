@@ -7,6 +7,8 @@ import type { AlgorithmType, MazeType } from "../utils/types";
 import { Select } from "./Select";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
 import { useSpeed } from "../hooks/useSpeed";
+import { runPathfindingAlgorithm } from "../utils/runPathfindingAlgorithm";
+import { PlayButton } from "./PlayButton";
 
 export function Nav() {
     const [isDisabled, setIsDisabled] = useState(false);
@@ -38,7 +40,15 @@ export function Nav() {
             return
         }
 
-        // run the algo
+        const {traversedTiles, path} = runPathfindingAlgorithm({
+            algorithm,
+            grid,
+            startTile,
+            endTile
+        })
+
+        console.log('traversedTiles', traversedTiles)
+        console.log('path', path)
     }
 
     return (
@@ -67,7 +77,8 @@ export function Nav() {
                     <PlayButton
                         isDisabled={isDisabled}
                         isGraphVisualised={isGraphVisualised}
-                        handleRunVisualiser={() => {}}
+                        handleRunVisualiser={handleRunVisualiser}
+                    />
                 </div>
             </div>
         </div>
