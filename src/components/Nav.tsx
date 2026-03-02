@@ -1,4 +1,4 @@
-import type { AlgorithmType, MazeType } from "../utils/types";
+import type { AlgorithmType, MazeType, SpeedType } from "../utils/types";
 import type { MutableRefObject } from "react";
 
 import { useState } from "react";
@@ -21,7 +21,7 @@ export function Nav({
     const [isDisabled, setIsDisabled] = useState(false);
     const {maze, setMaze, grid, setGrid, isGraphVisualised, setIsGraphVisualised, algorithm, setAlgorithm} = usePathfinding();
     const {startTile, endTile} = useTile();
-    const {speed} = useSpeed();
+    const {speed, setSpeed} = useSpeed();
 
     const handleGenerateMaze = (maze: MazeType) => {
         if (maze === 'NONE') {
@@ -87,6 +87,14 @@ export function Nav({
                         options={PATHFINDING_ALGORITHMS}
                         onChange={(e) => {
                             setAlgorithm(e.target.value as AlgorithmType)
+                        }}
+                    />
+                    <Select 
+                        label='Speed'
+                        value={speed}
+                        options={SPEEDS}
+                        onChange={(e) => {
+                            setSpeed(parseInt(e.target.value) as SpeedType)
                         }}
                     />
                     <PlayButton
