@@ -1,6 +1,7 @@
+import type { SpeedType, TileType } from "./types";
+
 import { EXTENDED_SLEEP_TIME, PATH_TILE_STYLE, SLEEP_TIME, SPEEDS, TRAVERSED_TILE_STYLE } from "./constants";
 import { isEqual } from "./helpers";
-import type { SpeedType, TileType } from "./types";
 
 export const animatePath = (
     traversedTiles: TileType[],

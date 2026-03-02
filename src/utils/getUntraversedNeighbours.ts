@@ -1,5 +1,6 @@
-import { MAX_COLS, MAX_ROWS } from "./constants";
 import type { GridType, TileType } from "./types";
+
+import { MAX_COLS, MAX_ROWS } from "./constants";
 
 export const getUntraversedNeighbours = (grid: GridType, tile: TileType) => {
     const {row,col} = tile;

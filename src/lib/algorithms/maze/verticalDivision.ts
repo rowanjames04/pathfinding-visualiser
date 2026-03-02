@@ -1,6 +1,7 @@
+import type { GridType, SpeedType, TileType } from "../../../utils/types";
+
 import { WALL_TILE_STYLE, SPEEDS } from "../../../utils/constants";
 import { getRandInt, isEqual, sleep } from "../../../utils/helpers";
-import type { GridType, SpeedType, TileType } from "../../../utils/types";
 import recursiveDivision from "./recursiveDivision";
 
 export async function verticalDivision({

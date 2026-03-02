@@ -1,6 +1,7 @@
+import type { SpeedType, TileType } from "./types";
+
 import { MAX_COLS, MAX_ROWS, SPEEDS, WALL_TILE_STYLE } from "./constants";
 import { isRowColEqual } from "./helpers";
-import type { SpeedType, TileType } from "./types";
 
 export const createWall = (
     startTile: TileType,

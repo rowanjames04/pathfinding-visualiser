@@ -1,8 +1,9 @@
+import type { GridType, MazeType, SpeedType, TileType } from "./types";
+
 import { binaryTree } from "../lib/algorithms/maze/binaryTree";
 import recursiveDivision from "../lib/algorithms/maze/recursiveDivision";
 import { MAX_COLS, MAX_ROWS, SPEEDS } from "./constants";
 import { constructBorder } from "./constructBorder";
-import type { GridType, MazeType, SpeedType, TileType } from "./types";
 
 export const runMazeAlgorithm = async ({
     maze,

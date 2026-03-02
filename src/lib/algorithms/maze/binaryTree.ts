@@ -1,8 +1,9 @@
+import type { GridType, SpeedType, TileType } from "../../../utils/types";
+
 import { MAX_COLS, MAX_ROWS } from "../../../utils/constants";
 import { createWall } from "../../../utils/createWall";
 import { destroyWall } from "../../../utils/destroyWall";
 import { getRandInt, isEqual, sleep } from "../../../utils/helpers";
-import type { GridType, SpeedType, TileType } from "../../../utils/types";
 
 export const binaryTree = async (
     grid: GridType,

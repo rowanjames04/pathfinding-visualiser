@@ -1,5 +1,6 @@
-import { isEqual } from "./helpers";
 import type { TileType } from "./types";
+
+import { isEqual } from "./helpers";
 
 export function isInQueue(tile: TileType, queue: TileType[]) {
     for (let i = 0; i < queue.length; i++) {

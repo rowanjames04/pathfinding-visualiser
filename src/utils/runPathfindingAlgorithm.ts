@@ -1,5 +1,6 @@
-import { bfs } from "../lib/algorithms/pathfinding/bfs";
 import type { AlgorithmType, GridType, TileType } from "./types";
+
+import { bfs } from "../lib/algorithms/pathfinding/bfs";
 
 export const runPathfindingAlgorithm = ({
     algorithm,
