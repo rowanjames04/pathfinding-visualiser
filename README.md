@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Pathfinding Visualiser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive React + TypeScript visualiser for pathfinding and maze-generation algorithms. Built with Vite, Tailwind CSS, and custom requestAnimationFrame-driven animations.
 
-Currently, two official plugins are available:
+## Algorithms
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Pathfinding
+- **Dijkstra** — weighted shortest-path (guarantees optimal path)
+- **A\*** — heuristic-guided shortest-path (optimal with admissible heuristic)
+- **Breadth-First Search (BFS)** — unweighted shortest-path
+- **Depth-First Search (DFS)** — explores as far as possible before backtracking
 
-## React Compiler
+### Maze Generation
+- **Binary Tree**
+- **Recursive Division**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Interactive grid (39×49) with draggable start and end tiles
+- Click and drag to draw/erase walls
+- Step-by-step animation with three speed settings (Slow, Medium, Fast)
+- Algorithm selection and maze generation via the top navigation bar
+- Smooth tile colour transitions using a centralized animation system
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- react-icons
+- Custom animation utilities with `requestAnimationFrame`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  components/          # Grid, Nav, Select, PlayButton, Tile
+  context/             # React Context providers (Pathfinding, Tile, Speed)
+  hooks/               # Custom hooks for state access
+  lib/algorithms/      # Algorithm implementations
+    pathfinding/       # aStar, bfs, dfs, dijkstra
+    maze/              # binaryTree, recursiveDivision, horizontal/verticalDivision
+  utils/               # Helpers, constants, animation, grid reset, etc.
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
+
+Open `http://localhost:5173` (or the port shown in your terminal) to use the visualiser.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## License
+
+MIT
